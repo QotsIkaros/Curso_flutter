@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget{
         backgroundColor: Colors.lightBlue,
         centerTitle: true,
       ),
-      backgroundColor: Colors.lightGreen,
+      backgroundColor: Colors.indigo,
       body: Center(
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

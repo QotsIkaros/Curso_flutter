@@ -27,24 +27,33 @@ class _CounterScreenState extends State<CounterScreen> {
   @override
   Widget build(BuildContext context) {
 
-    const fontSize30 = TextStyle( fontSize: 30 );
+    const fontSize30 = TextStyle( fontSize: 30, color: Colors.black );
 
     return Scaffold(
       appBar: AppBar(
         title: const Text("CounterScreen", style: TextStyle(color: Colors.white)),
         elevation: 10.0,
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: Colors.indigo,
         centerTitle: true,
       ),
-      backgroundColor: Colors.lightGreen,
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Numero de Clicks', style: fontSize30),
-              Text(  '$counter', style: fontSize30),
-            ],
-          ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   children: const [
+            //     Image(
+            //       image: NetworkImage('http://www.fruteriasnenas.com/Web/assets/img/logo.png'),
+            //       filterQuality: FilterQuality.none,
+            //     )
+            //   ],
+            // ),
+            const Text('Numero de Clicks', style: fontSize30),
+            Text(  '$counter', style: TextStyle(fontSize: 30,color: counter > 0? Colors.green : counter < 0? Colors.red : Colors.grey), ),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: CustomfloatingActionButton(
@@ -77,16 +86,19 @@ class CustomfloatingActionButton extends StatelessWidget {
 
         FloatingActionButton(
           onPressed: () => increaseFn(),
-          child: const Icon( Icons.exposure_plus_1_outlined),
+          backgroundColor: Colors.lightGreen,
+          child: const Icon( Icons.exposure_plus_1_outlined)
         ),
         
         FloatingActionButton(
           onPressed: () => restFn(),
+          backgroundColor: Colors.grey,
           child: const Icon( Icons.exposure_zero_outlined)
         ),
 
         FloatingActionButton(
           onPressed: () => decreaseFn(),
+          backgroundColor: Colors.red,
           child: const Icon( Icons.exposure_minus_1_outlined)
         ),
 
